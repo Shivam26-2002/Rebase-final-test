@@ -5,6 +5,8 @@ on:
       - main
       - 'hotfix-*'
       - 'release-*'
+  pull_request:
+    types: [closed]
 jobs:
   push-test:
     runs-on: ubuntu-latest
