@@ -31,8 +31,10 @@ jobs:
           
           BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
           
-          git checkout $BRANCH_NAME
+          git checkout $BRANCH_NAME dev
+          git status
           git rebase dev
+          git status
           git add .
           git commit -m 'feature rebased'
           git push
