@@ -29,13 +29,13 @@ jobs:
           
           BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
           
-          git checkout dev                            
-          git checkout $BRANCH_NAME                    
-          git rebase dev          
+          #git checkout dev                            
+          #git checkout $BRANCH_NAME                    
+          #git rebase dev          
                     
-          git checkout dev 
-          git rebase $BRANCH_NAME
-          git push
+          #git checkout dev 
+          #git rebase $BRANCH_NAME
+          #git push
           
           
     
