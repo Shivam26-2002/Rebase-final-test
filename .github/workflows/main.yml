@@ -34,7 +34,7 @@ jobs:
           #git checkout -b origin/dev
           git status
           echo 1
-          git rebase dev
+          git rebase origin dev
           echo 2
           git status
           git add .
