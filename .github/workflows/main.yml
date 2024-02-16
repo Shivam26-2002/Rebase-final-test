@@ -23,6 +23,8 @@ jobs:
          run: |
           git config --global user.email github-actions@github.com
           git config --global user.name github-actions
+
+          echo hello world
           
           BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
           
