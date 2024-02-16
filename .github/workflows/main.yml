@@ -31,7 +31,7 @@ jobs:
           
           BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
           
-          git checkout $BRANCH_NAME origin/dev
+          git checkout -b origin/dev
           git status
           git rebase dev
           git status
