@@ -31,7 +31,7 @@ jobs:
           
           git checkout dev                            
           git checkout $BRANCH_NAME                    
-          git rebase dev          
+          #git rebase dev          
                     
           git checkout dev 
           git rebase $BRANCH_NAME
