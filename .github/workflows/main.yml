@@ -42,13 +42,13 @@ jobs:
           git status
           #git add .
           #git commit -m 'feature rebased'
-          #git push origin $BRANCH_NAME
+          git push origin $BRANCH_NAME
           echo 3
           
           git checkout dev 
           git rebase $BRANCH_NAME
-          git add .
-          git commit -m "dev rebased"
+          #git add .
+          #git commit -m "dev rebased"
           git push
           
           
