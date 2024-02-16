@@ -23,35 +23,21 @@ jobs:
          run: |
           git config --global user.email github-actions@github.com
           git config --global user.name github-actions
-          git fetch origin
-          BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
-          echo "Branch name is $BRANCH_NAME!" 
-          git checkout dev
-          git rebase --onto $BRANCH_NAME dev
-          # git pull origin dev
-          # git config --global pull.rebase true 
-          git pull --rebase origin dev
-          git push origin dev
-
-  on_merged:
-    if: github.event.pull_request.merged == true && (github.head_ref == 'main' || startsWith(github.head_ref, 'release-') || startsWith(github.head_ref, 'hotfix-'))
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
           
-      - name: Rebase through Merge request
-        env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.email github-actions@github.com
-          git config --global user.name github-actions
-          git fetch origin
-          echo "Pull request from branch ${{github.head_ref}} was merged!"  
-          git checkout development
-          git pull origin development
-          git rebase origin/${{github.head_ref}}
-          git push origin development
+          BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
+          
+          git checkout $BRANCH_NAME
+          git rebase dev
+          git add .
+          git commit -m 'feature rebased'
+          git push
+          
+          git checkout dev 
+          git rebase $BRANCH_NAME
+          git add .
+          git commit -m "dev rebased"
+          git push
+          
           
     
       
