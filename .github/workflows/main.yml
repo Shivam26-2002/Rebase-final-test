@@ -40,8 +40,8 @@ jobs:
           git rebase dev
           echo 2
           git status
-          git add .
-          git commit -m 'feature rebased'
+          #git add .
+          #git commit -m 'feature rebased'
           #git push origin $BRANCH_NAME
           echo 3
           
