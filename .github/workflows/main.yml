@@ -26,29 +26,15 @@ jobs:
          run: |
           git config --global user.email github-actions@github.com
           git config --global user.name github-actions
-
-          echo hello world
           
           BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
           
-          #git checkout -b origin/dev
-          git checkout dev                  
-          git status
-          git checkout $BRANCH_NAME
-          git status
-          echo 1
-          git rebase dev
-          echo 2
-          git status
-          #git add .
-          #git commit -m 'feature rebased'
-          #git push origin $BRANCH_NAME
-          echo 3
-          
+          git checkout dev                            
+          git checkout $BRANCH_NAME                    
+          git rebase dev          
+                    
           git checkout dev 
           git rebase $BRANCH_NAME
-          #git add .
-          #git commit -m "dev rebased"
           git push
           
           
